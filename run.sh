@@ -81,13 +81,13 @@ if [[ -n "$PROXY_GOOGLE" ]]; then
                         exit 1
                 fi
  
-                if [ -f "${Nginx_Install_Dir}/conf/ssl/${PROXY_CRT}" ]; then
+                if [ ! -f "${Nginx_Install_Dir}/conf/ssl/${PROXY_CRT}" ]; then
                         echo >&2 'error:  missing PROXY_CRT'
                         echo >&2 "  You need to put ${PROXY_CRT} in ssl directory"
                         exit 1
                 fi
  
-                if [ -f "${Nginx_Install_Dir}/conf/ssl/${PROXY_KEY}" ]; then
+                if [ ! -f "${Nginx_Install_Dir}/conf/ssl/${PROXY_KEY}" ]; then
                         echo >&2 'error:  missing PROXY_CSR'
                         echo >&2 "  You need to put ${PROXY_KEY} in ssl directory"
                         exit 1
